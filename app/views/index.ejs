@@ -20,8 +20,8 @@ html, body {
   float: left;
   cursor: pointer;
   position: absolute;
-  left: 12px;
-  top: 500px;
+  top: 50px;
+  left: 6px;
   padding: 14px 16px;
   transition: 0.3s;
 }
@@ -35,8 +35,8 @@ html, body {
   border: none;
   outline: none;
   position: absolute;
-  right: 12px;
-  top: 500px;
+  top: 50px;
+  right: 6px;
   cursor: pointer;
   padding: 14px 16px;
   transition: 0.3s;
@@ -55,6 +55,8 @@ html, body {
 }
 .page-header {
     width: 100%;
+		position: relative;
+		top: 50px;
     height: 50px; line-height: 50px;
     color: white;
     font-size: 20pt;
@@ -93,11 +95,13 @@ html, body {
 }
 .page-content {
     width: 100%;
-    height: calc(100% - 50px);
+    height: 100px;
 }
 .scan-results-container {
     margin: 0 auto;
     margin-bottom: 10px;
+		position: relative;
+		top: 60px;
     width: 100%; max-width: 400px;
     height: 350px;
     border-bottom: 2px solid white;
@@ -132,7 +136,7 @@ html, body {
     width: 80%; height: 100%;
 }
 .scan-result .secure {
-    color: white;
+    color: blue;
     padding-left: 3px;
 }
 .scan-result .signal_stength {
@@ -262,7 +266,13 @@ html, body {
 </div>
 
 <div id="WIFI" class="tabcontent">
-  <head>
+  <div class="btn_tab_back">
+  <button class="tablinks" onclick="openTab(event, 'Welcome')">BACK</button>
+</div>
+<div class="btn_tab_forward">
+  <button class="tablinks" onclick="openTab(event, 'Update')">Update Raspian</button>
+</div>
+	<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, user-scalable=1">
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -311,12 +321,6 @@ html, body {
     <script src="/external/angularjs/angular.min.js"></script>
     <script src="/app.js"></script>
 </body>
-<div class="btn_tab_back">
-  <button class="tablinks" onclick="openTab(event, 'Welcome')">BACK</button>
-</div>
-<div class="btn_tab_forward">
-  <button class="tablinks" onclick="openTab(event, 'Update')">Update Raspian</button>
-</div>
 </div>
 		  
 <div id="Update" class="tabcontent">

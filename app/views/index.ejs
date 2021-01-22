@@ -1,9 +1,50 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="RpiWifiConfig">>
+<html lang="en" ng-app="RpiWifiConfig">
 <head>
 <title>SimpleAudio</title>
 
 <style>
+
+html, body {
+    margin: 0; padding: 0;
+    font-family: "Roboto", "PT Sans", sans-serif;
+    height: 100%; min-height: 100%;
+    overflow: hidden;
+    position: relative;
+}	
+	
+.btn_tab_back button{
+  background-color: #E0ECF8;
+  border: none;
+  outline: none;	
+  float: left;
+  cursor: pointer;
+  position: absolute;
+  left: 12px;
+  top: 500px;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+	
+.btn_tab_back button:hover {
+  background-color: #045FB4;
+}
+	
+.btn_tab_forward button{
+  background-color: #E0ECF8;
+  border: none;
+  outline: none;
+  position: absolute;
+  right: 12px;
+  top: 500px;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+	
+.btn_tab_forward button:hover {
+  background-color: #045FB4;
+}	
 	
 html, body {
     margin: 0; padding: 0;
@@ -58,10 +99,10 @@ html, body {
     margin: 0 auto;
     margin-bottom: 10px;
     width: 100%; max-width: 400px;
-    height: calc(100% - 5px);
+    height: 350px;
     border-bottom: 2px solid white;
     background: #E0ECF8;
-    overflow-y: auto;
+    overflow-y: scroll;
     overflow-x: hidden;
 }
 .scan-result {
@@ -201,40 +242,7 @@ html, body {
   from {opacity: 0;}
   to {opacity: 1;}
 }
-	
-.btn_tab_back button{
-  background-color: #E0ECF8;
-  border: none;
-  outline: none;	
-		float: left;
-  cursor: pointer;
-		position: absolute;
-		left: 12px;
-		top: 500px;
-  padding: 14px 16px;
-  transition: 0.3s;
-}
-	
-.btn_tab_back button:hover {
-  background-color: #045FB4;
-}
-	
-.btn_tab_forward button{
-  background-color: #E0ECF8;
-  border: none;
-  outline: none;
-		position: absolute;
-		right: 12px;
-		top: 500px;
-  cursor: pointer;
-  padding: 14px 16px;
-  transition: 0.3s;
-		
-}
-	
-.btn_tab_forward button:hover {
-  background-color: #045FB4;
-}
+
 </style>
 <body>
 

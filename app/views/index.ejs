@@ -372,7 +372,9 @@ html, body {
         reset       = "change_selection()"
         submit      = "submit_selection()"
         ng-keydown  = "{esc: 'close_password_entry()'}" />
-
+<!-- Scripts load last -->
+<script src="/external/angularjs/angular.min.js"></script>
+<script src="/app.js"></script>
 </body>
 </div>
 
@@ -403,10 +405,7 @@ function openTab(evt, tabName) {
 }
 // Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
-	
-<!-- Scripts load last -->
-<script src="/external/angularjs/angular.min.js"></script>
-<script src="/app.js"></script>
+
 </script>
    
 </head>

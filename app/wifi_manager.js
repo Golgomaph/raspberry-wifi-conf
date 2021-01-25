@@ -255,12 +255,7 @@ module.exports = function() {
             
 				
 				//Add new network
-				function update_wpa_supplicant(next_step) {
-                    write_template_to_file(
-                        "./assets/etc/wpa_supplicant/wpa_supplicant.conf.template",
-                        "/etc/wpa_supplicant/wpa_supplicant.conf",
-                        connection_info, next_step);
-				},
+		    		cat ./assets/etc/wpa_supplicant/wpa_supplicant.conf.template >> /etc/wpa_supplicant/wpa_supplicant.conf;
 
                 function update_interfaces(next_step) {
                     write_template_to_file(

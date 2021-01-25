@@ -9,10 +9,8 @@ var app = angular.module("RpiWifiConfig", []);
 /******************************************************************************\
 Function:
     AppController
-
 Dependencies:
     ...
-
 Description:
     Main application controller
 \******************************************************************************/
@@ -54,17 +52,18 @@ app.controller("AppController", ["PiManager", "$scope", "$location", "$timeout",
             $scope.show_passcode_entry_field = (cell != null) ? true : false;
         }
 
-        $scope.save_selection = function() {
-            $scope.show_passcode_entry_field = (cell != null) ? true : false;
-			if (!$scope.selected_cell) return;
+        $scope.submit_selection = function() {
+            if (!$scope.selected_cell) return;
 
             var wifi_info = {
                 wifi_ssid:      $scope.selected_cell["ssid"],
                 wifi_passcode:  $scope.network_passcode,
             };
-		}
 		
-		$scope.submit_selection = function() {
+	    $scope.network_passcode = "";
+            $scope.selected_cell = cell;
+            $scope.show_passcode_entry_field = (cell != null) ? true : false;
+
             PiManager.enable_wifi(wifi_info).then(function(response) {
                 console.log(response.data);
                 if (response.data.status == "SUCCESS") {

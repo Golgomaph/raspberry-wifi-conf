@@ -55,13 +55,13 @@ app.controller("AppController", ["PiManager", "$scope", "$location", "$timeout",
         }
 
         $scope.save_selection = function() {
-            if (!$scope.selected_cell) return;
+            $scope.show_passcode_entry_field = (cell != null) ? true : false;
+			if (!$scope.selected_cell) return;
 
             var wifi_info = {
                 wifi_ssid:      $scope.selected_cell["ssid"],
                 wifi_passcode:  $scope.network_passcode,
             };
-			$scope.show_passcode_entry_field = (cell != null) ? true : false;
 		}
 		
 		$scope.submit_selection = function() {

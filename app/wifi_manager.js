@@ -250,10 +250,24 @@ module.exports = function() {
                 console.log("\nWifi connection is enabled with IP: " + result_ip);
                 return callback(null);
             }
-	   
-            async.series([
 
-                 cat raspberry-wifi-conf/assets/etc/wpa_supplicant/wpa_supplicant.conf.template >> /etc/wpa_supplicant/wpa_supplicant.conf,
+            async.series([
+            
+				
+				//Add new network
+				function update_wpa_supplicant(next_step) {
+                    write_template_to_file(
+                        "./assets/etc/wpa_supplicant/wpa_supplicant.conf.template",
+                        "/etc/wpa_supplicant/wpa_supplicant.conf",
+                        connection_info, next_step);
+				},
+
+                function update_interfaces(next_step) {
+                    write_template_to_file(
+                        "./assets/etc/dhcpcd/dhcpcd.station.template",
+                        "/etc/dhcpcd.conf",
+                        connection_info, next_step);
+                },
 
                 // Enable the interface in the dhcp server
                 function update_dhcp_interface(next_step) {

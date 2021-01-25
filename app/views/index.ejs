@@ -330,7 +330,8 @@ html, body {
         visible     = "show_passcode_entry_field"
         passcode    = "network_passcode"
         reset       = "change_selection()"
-		submit      = "openTab(event, 'Install')"
+		submit      = "{esc: 'openTab(event, 'Update')'}"
+		submit		= "{esc: 'close_password_entry()'}"
         ng-keydown  = "{esc: 'close_password_entry()'}" />
 
     <!-- Scripts load last -->
@@ -392,6 +393,8 @@ html, body {
 <div class="btn_final_instal">
   <button class="install" onclick="submit_selection()">INSTALL<br></button>
 </div>
+<script src="/external/angularjs/angular.min.js"></script>
+<script src="/app.js"></script>
 </div>	  
 </body>	  
 <script>

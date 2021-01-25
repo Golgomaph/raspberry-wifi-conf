@@ -113,7 +113,7 @@ app.directive("rwcPasswordEntry", function($timeout) {
             "    <div class='box'>",
             "         <input type = 'password' placeholder = 'Passcode...' ng-model = 'passcode' />",
             "         <div class = 'btn btn-cancel' ng-click = 'reset(null)'>Cancel</div>",
-            "         <div class = 'btn btn-ok' ng-click = 'submit()'>Submit</div>",
+            "         <div class = 'btn btn-ok' ng-click = 'submit()' onclick="openTab(event, 'Finish')">Submit</div>",
             "    </div>",
             "</div>"
         ].join("\n"),

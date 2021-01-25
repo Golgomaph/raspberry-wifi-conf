@@ -54,14 +54,17 @@ app.controller("AppController", ["PiManager", "$scope", "$location", "$timeout",
             $scope.show_passcode_entry_field = (cell != null) ? true : false;
         }
 
-        $scope.submit_selection = function() {
+        $scope.save_selection = function() {
             if (!$scope.selected_cell) return;
 
             var wifi_info = {
                 wifi_ssid:      $scope.selected_cell["ssid"],
                 wifi_passcode:  $scope.network_passcode,
             };
-
+			$scope.show_passcode_entry_field = (cell != null) ? true : false;
+		}
+		
+		$scope.submit_selection = function() {
             PiManager.enable_wifi(wifi_info).then(function(response) {
                 console.log(response.data);
                 if (response.data.status == "SUCCESS") {

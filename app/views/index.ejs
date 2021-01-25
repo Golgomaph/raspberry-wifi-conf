@@ -46,22 +46,6 @@ html, body {
   background-color: #045FB4;
 }	
 	
-.btn_final_instal button{
-  background-color: #E0ECF8;
-  border: none;
-  outline: none;
-  position: absolute;
-  top: 480px;
-  left: 6px;
-  cursor: pointer;
-  padding: 14px 16px;
-  transition: 0.3s;
-}
-	
-.btn_final_instal button:hover {
-  background-color: #045FB4;
-}
-	
 html, body {
     margin: 0; padding: 0;
     font-family: "Roboto", "PT Sans", sans-serif;
@@ -269,25 +253,81 @@ html, body {
 
 <div class="tab">
   <button class="tablinks" onclick="openTab(event, 'Welcome')" id="defaultOpen">1. Welcome</button>
-  <button class="tablinks" onclick="openTab(event, 'WIFI')">2. WIFI</button>
-  <button class="tablinks" onclick="openTab(event, 'Update')">3. Update</button>
-  <button class="tablinks" onclick="openTab(event, 'Install')">4. Install</button>
+  <button class="tablinks" onclick="openTab(event, 'Update')">2. Update</button>
+  <button class="tablinks" onclick="openTab(event, 'Install')">3. Install</button>
+  <button class="tablinks" onclick="openTab(event, 'WIFI')">4. WIFI</button>
+  <button class="tablinks" onclick="openTab(event, 'Finish')">5. Finish</button>
 </div>
 
 <div id="Welcome" class="tabcontent">
   <h3>1. Welcome</h3>
   <p>Welcome to simpleaudio.</p>
 <div class="btn_tab_forward">
-  <button class="tablinks" onclick="openTab(event, 'WIFI')">Connect WIFI</button>
+  <button class="tablinks" onclick="openTab(event, 'Update')">Update Raspian</button>
 </div>
 </div>
-
-<div id="WIFI" class="tabcontent">
-  <div class="btn_tab_back">
+		  
+<div id="Update" class="tabcontent">
+  <h3>2. Update</h3>
+  <p>We highly recommend updating your raspberry to the newest version of raspian. However if you wish to stay on the current OS check "No" and install simpleaudio without updating.</p>
+<form>
+  <p>Update to newest raspian?</p>
+  <fieldset>
+    <input type="radio" id="u_y" name="Chooseupdate" value="Yes" checked="checked">
+    <label for="update_yes"> Yes</label> 
+    <input type="radio" id="u_n" name="Chooseupdate" value="No">
+    <label for="update_no"> No</label>
+  </fieldset>
+</form>
+<div class="btn_tab_back">
   <button class="tablinks" onclick="openTab(event, 'Welcome')">BACK</button>
 </div>
 <div class="btn_tab_forward">
-  <button class="tablinks" onclick="openTab(event, 'Update')">Update Raspian</button>
+  <button class="tablinks" onclick="openTab(event, 'Install')">Install Options</button>
+</div>
+</div>
+	
+<div id="Install" class="tabcontent">
+  <h3>3. Install</h3>
+  <p>Choose the components you wish to install. This is also available after first installation, it can be done everytime.</p>
+	<p><br></p>
+	<p><b>I wish to stream audio via ...</b></p>
+<div>
+  <input type="checkbox" id="check_bluetooth" name="bluetooth"
+         checked="checked">
+  <label for="bluetooth">... Bluetooth</label>
+</div>
+<div>
+  <input type="checkbox" id="check_upnp" name="upnp" checked="checked">
+  <label for="upnp">... WiFi UPNP</label>
+</div>
+<div>
+  <input type="checkbox" id="check_airplay" name="airplay" checked="checked">
+  <label for="airplay">... Apple AirPlay</label>
+</div>
+<div>
+  <input type="checkbox" id="check_spotify" name="spotify" checked="checked">
+  <label for="spotify">... Spotify Device List</label>
+</div>
+	<p><b>More functionalities:</b></p>
+<div>
+  <input type="checkbox" id="check_snapcast" name="snapcast">
+  <label for="snapcast">Snapcast Multiroom</label>
+</div>
+<div class="btn_tab_back">
+  <button class="tablinks" onclick="openTab(event, 'Update')">BACK<br></button>
+</div>
+<div class="btn_tab_forward">
+  <button class="tablinks" onclick="openTab(event, 'WIFI')">Setup WIFI</button>
+</div>
+</div>
+	
+<div id="WIFI" class="tabcontent">
+  <div class="btn_tab_back">
+  <button class="tablinks" onclick="openTab(event, 'Install')">BACK</button>
+</div>
+<div class="btn_tab_forward">
+  <button class="tablinks" onclick="openTab(event, 'Finish')">Check WIFI & Install</button>
 </div>
 	<head>
     <meta charset="utf-8">
@@ -327,73 +367,24 @@ html, body {
     </div>
 
     <rwc-password-entry
-        visible     = "show_passcode_entry_field"
+        visible     = show_passcode_entry_field
         passcode    = "network_passcode"
         reset       = "change_selection()"
         submit      = "submit_selection()"
         ng-keydown  = "{esc: 'close_password_entry()'}" />
 
-    <!-- Scripts load last -->
-    <script src="/external/angularjs/angular.min.js"></script>
-    <script src="/app.js"></script>
-
 </body>
 </div>
-		  
-<div id="Update" class="tabcontent">
-  <h3>3. Update</h3>
-  <p>We highly recommend updating your raspberry to the newest version of raspian. However if you wish to stay on the current OS check "No" and install simpleaudio without updating.</p>
-<form>
-  <p>Update to newest raspian?</p>
-  <fieldset>
-    <input type="radio" id="u_y" name="Chooseupdate" value="Yes" checked="checked">
-    <label for="update_yes"> Yes</label> 
-    <input type="radio" id="u_n" name="Chooseupdate" value="No">
-    <label for="update_no"> No</label>
-  </fieldset>
-</form>
-<div class="btn_tab_back">
-  <button class="tablinks" onclick="openTab(event, 'WIFI')">BACK</button>
-</div>
-<div class="btn_tab_forward">
-  <button class="tablinks" onclick="openTab(event, 'Install')">Install Options</button>
-</div>
+
+<div id="Finish" class="tabcontent">
+  <h3>Installation in process...<br></h3>
+	<p>Your Raspberry now connects to WIFI and installs all selected packages.<br></p>
+	<p>This Hotspot has been deactivated.<br></p>
+	<p><b>Thanks for using SimpleAudio. Installation will take about ~5min.<br></b></p> 
+	<p>If the Network "SimpleAudio" appears in your WIFI-Networks again there was a problem with your WIFI Credentials and the Raspi was not able to connect to it. Consider checking your passcode and network-functionality then.</p>
+
 </div>
 	
-<div id="Install" class="tabcontent">
-  <h3>4. Install</h3>
-  <p>Choose the components you wish to install. This is also available after first installation, it can be done everytime.</p>
-	<p><br></p>
-	<p><b>I wish to stream audio via ...</b></p>
-<div>
-  <input type="checkbox" id="check_bluetooth" name="bluetooth"
-         checked="checked">
-  <label for="bluetooth">... Bluetooth</label>
-</div>
-<div>
-  <input type="checkbox" id="check_upnp" name="upnp" checked="checked">
-  <label for="upnp">... WiFi UPNP</label>
-</div>
-<div>
-  <input type="checkbox" id="check_airplay" name="airplay" checked="checked">
-  <label for="airplay">... Apple AirPlay</label>
-</div>
-<div>
-  <input type="checkbox" id="check_spotify" name="spotify" checked="checked">
-  <label for="spotify">... Spotify Device List</label>
-</div>
-	<p><b>More functionalities:</b></p>
-<div>
-  <input type="checkbox" id="check_snapcast" name="snapcast">
-  <label for="snapcast">Snapcast Multiroom</label>
-</div>
-<div class="btn_tab_back">
-  <button class="tablinks" onclick="openTab(event, 'Update')">BACK<br></button>
-</div>
-<div class="btn_final_instal">
-  <button class="install" onclick="">INSTALL<br></button>
-</div>
-</div>	  
 </body>	  
 <script>
 function openTab(evt, tabName) {
@@ -412,6 +403,10 @@ function openTab(evt, tabName) {
 }
 // Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
+	
+<!-- Scripts load last -->
+<script src="/external/angularjs/angular.min.js"></script>
+<script src="/app.js"></script>
 </script>
    
 </head>

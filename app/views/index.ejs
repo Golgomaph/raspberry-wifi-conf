@@ -330,8 +330,7 @@ html, body {
         visible     = "show_passcode_entry_field"
         passcode    = "network_passcode"
         reset       = "change_selection()"
-		submit      = "submit_selection()"
-		submit		= "openTab(event,'Update')"
+		submit      = "openTab(event, 'Install')"
         ng-keydown  = "{esc: 'close_password_entry()'}" />
 
     <!-- Scripts load last -->
@@ -362,7 +361,7 @@ html, body {
 	
 <div id="Install" class="tabcontent">
   <h3>4. Install</h3>
-  <p>Choose the components you wish to install. This is also available after first installation,it can be done everytime.</p>
+  <p>Choose the components you wish to install. This is also available after first installation, it can be done everytime.</p>
 	<p><br></p>
 	<p><b>I wish to stream audio via ...</b></p>
 <div>
@@ -391,7 +390,7 @@ html, body {
   <button class="tablinks" onclick="openTab(event, 'Update')">BACK<br></button>
 </div>
 <div class="btn_final_instal">
-  <button class="install" onclick="..">INSTALL<br></button>
+  <button class="install" onclick="submit_selection()">INSTALL<br></button>
 </div>
 </div>	  
 </body>	  

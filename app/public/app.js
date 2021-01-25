@@ -59,10 +59,6 @@ app.controller("AppController", ["PiManager", "$scope", "$location", "$timeout",
                 wifi_ssid:      $scope.selected_cell["ssid"],
                 wifi_passcode:  $scope.network_passcode,
             };
-		
-	    $scope.network_passcode = "";
-            $scope.selected_cell = cell;
-            $scope.show_passcode_entry_field = (cell != null) ? true : false;
 
             PiManager.enable_wifi(wifi_info).then(function(response) {
                 console.log(response.data);

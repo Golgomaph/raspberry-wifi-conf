@@ -304,7 +304,7 @@ html, body {
       ng-keyup      = "$event.keyCode == 27 ? change_selection(null) : ''">
 
     <div class = "page-header">
-        <i class = "fa fa-wifi"></i> Available WIFI Networks:
+        <i class = "fa fa-wifi"></i> Choose your WIFI Network
         <a href = "#" ng-click = "rescan()" ng-class = "{ 'active': scan_running }">
             <i class = "fa fa-refresh"
                ng-class = "{ 'fa-spin': scan_running }"></i>
@@ -330,12 +330,13 @@ html, body {
         visible     = "show_passcode_entry_field"
         passcode    = "network_passcode"
         reset       = "change_selection()"
-		submit      = "save_selection()"
+        submit      = "submit_selection()"
         ng-keydown  = "{esc: 'close_password_entry()'}" />
 
     <!-- Scripts load last -->
     <script src="/external/angularjs/angular.min.js"></script>
     <script src="/app.js"></script>
+
 </body>
 </div>
 		  
@@ -390,9 +391,8 @@ html, body {
   <button class="tablinks" onclick="openTab(event, 'Update')">BACK<br></button>
 </div>
 <div class="btn_final_instal">
-  <button class="install" onclick="submit_selection()">INSTALL<br></button>
+  <button class="install" onclick="">INSTALL<br></button>
 </div>
-<script src="/app.js"></script>
 </div>	  
 </body>	  
 <script>

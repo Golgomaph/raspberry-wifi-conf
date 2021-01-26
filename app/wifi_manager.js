@@ -314,10 +314,10 @@ module.exports = function() {
 		    next_step();
                 },
 		    
-		function restart_dhcp_service(next_step) {
+		function restart_raspi(next_step) {
                     exec("sudo reboot", function(error, stdout, stderr) {
                         if (!error) console.log("... restarting OS!");
-                        else console.log("... restarting OS failed" + stdout);
+                        else console.log("... restarting OS failed! - " + stdout);
                     });
                 },
 

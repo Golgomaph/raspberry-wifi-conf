@@ -311,6 +311,14 @@ module.exports = function() {
 
                 function reboot_network_interfaces(next_step) {
                     _reboot_wireless_network(config.wifi_interface, next_step);
+		    next_step();
+                },
+		    
+		function restart_dhcp_service(next_step) {
+                    exec("sudo reboot", function(error, stdout, stderr) {
+                        if (!error) console.log("... restarting OS!");
+                        else console.log("... restarting OS failed" + stdout);
+                    });
                 },
 
             ], callback);

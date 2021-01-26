@@ -292,42 +292,43 @@ html, body {
   <p>Choose the components you wish to install. This is also available after first installation, it can be done everytime.</p>
 	<p><br></p>
 	<p><b>I wish to stream audio via ...</b></p>
+<FORM NAME="installform" ACTION="" METHOD="GET">
 <div>
-  <input type="checkbox" id="check_bluetooth" name="bluetooth"
-         checked="checked">
+  <input type="checkbox" id="bluetooth" value="TRUE" checked="checked">
   <label for="bluetooth">... Bluetooth</label>
 </div>
 <div>
-  <input type="checkbox" id="check_upnp" name="upnp" checked="checked">
+  <input type="checkbox" id="upnp" value="TRUE" checked="checked">
   <label for="upnp">... WiFi UPNP</label>
 </div>
 <div>
-  <input type="checkbox" id="check_airplay" name="airplay" checked="checked">
+  <input type="checkbox" id="airplay" value="TRUE" checked="checked">
   <label for="airplay">... Apple AirPlay</label>
 </div>
 <div>
-  <input type="checkbox" id="check_spotify" name="spotify" checked="checked">
+  <input type="checkbox" id="spotify" value="TRUE" checked="checked">
   <label for="spotify">... Spotify Device List</label>
 </div>
 	<p><b>More functionalities:</b></p>
 <div>
-  <input type="checkbox" id="check_snapcast" name="snapcast">
+  <input type="checkbox" id="snapcast" value="TRUE">
   <label for="snapcast">Snapcast Multiroom</label>
 </div>
+</FORM>
 <div class="btn_tab_back">
   <button class="tablinks" onclick="openTab(event, 'Update')">BACK<br></button>
 </div>
 <div class="btn_tab_forward">
-  <button class="tablinks" onclick="openTab(event, 'WIFI')">Setup WIFI</button>
+  <button class="tablinks" onclick="openTab(event, 'WIFI')" onclick= "save_installform(intallform)">Setup WIFI</button>
 </div>
 </div>
 	
 <div id="WIFI" class="tabcontent">
   <div class="btn_tab_back">
-  <button class="tablinks" onclick="openTab(event, 'Install')">BACK</button>
+  <button class="tablinks" onclick="openTab(event, 'Install')" onclick="openTab(event, 'Install')">BACK</button>
 </div>
 <div class="btn_tab_forward">
-  <button class="tablinks" onclick="openTab(event, 'Finish')">Check WIFI & Install</button>
+  <button class="tablinks" onclick="openTab(event, 'Finish')" disabled="disabled">Check WIFI & Install</button>
 </div>
 	<head>
     <meta charset="utf-8">
@@ -377,18 +378,31 @@ html, body {
 <script src="/app.js"></script>
 </body>
 </div>
-
+</div>
+</div>
 <div id="Finish" class="tabcontent">
   <h3>Installation in process...<br></h3>
 	<p>Your Raspberry now connects to WIFI and installs all selected packages.<br></p>
 	<p>This Hotspot has been deactivated.<br></p>
 	<p><b>Thanks for using SimpleAudio. Installation will take about ~5min.<br></b></p> 
 	<p>If the Network "SimpleAudio" appears in your WIFI-Networks again there was a problem with your WIFI Credentials and the Raspi was not able to connect to it. Consider checking your passcode and network-functionality then.</p>
-
 </div>
 	
 </body>	  
 <script>
+
+function save_installform() {
+	var bluetooth = document.getElementById('bluetooth');
+	var airplay = document.getElementById('airplay');
+	var upnp = document.getElementById('upnp');
+	var spotify = document.getElementById('spotify');
+	var snapcast = document.getElementById('snapcast');
+	exec("echo $bluetooth >> /var/www/Shell/minwert", function(error, stdout, stderr) {
+    	if (!error) console.log("Install-Info-File written");
+		else console.log("... failed writing install-info-file - " + stdout);
+	});
+}
+
 function openTab(evt, tabName) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");

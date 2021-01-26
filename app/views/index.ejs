@@ -319,7 +319,7 @@ html, body {
   <button class="tablinks" onclick="openTab(event, 'Update')">BACK<br></button>
 </div>
 <div class="btn_tab_forward">
-  <button class="tablinks" onclick="openTab(event, 'WIFI')" onclick= "save_installform(intallform)">Setup WIFI</button>
+  <button class="tablinks" onclick="openTab(event, 'WIFI'); save_installform()">Setup WIFI</button>
 </div>
 </div>
 	
@@ -397,13 +397,10 @@ function save_installform() {
 	var upnp = document.getElementById('upnp');
 	var spotify = document.getElementById('spotify');
 	var snapcast = document.getElementById('snapcast');
-	exec("echo $bluetooth >> /var/www/Shell/minwert", function(error, stdout, stderr) {
-    	if (!error) console.log("Install-Info-File written");
-		else console.log("... failed writing install-info-file - " + stdout);
-	});
 }
 
 function openTab(evt, tabName) {
+	<script type="text/javascript" src="vartofile.js"></script>
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
   for (i = 0; i < tabcontent.length; i++) {

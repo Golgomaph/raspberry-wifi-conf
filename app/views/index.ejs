@@ -289,32 +289,19 @@ html, body {
 	
 <div id="Install" class="tabcontent">
   <h3>3. Install</h3>
-  <p>Choose the components you wish to install. This is also available after first installation, it can be done everytime.</p>
-	<p><br></p>
-	<p><b>I wish to stream audio via ...</b></p>
-<FORM NAME="installform" ACTION="" METHOD="GET">
-<div>
-  <input type="checkbox" id="bluetooth" value="TRUE" checked="checked">
-  <label for="bluetooth">... Bluetooth</label>
-</div>
-<div>
-  <input type="checkbox" id="upnp" value="TRUE" checked="checked">
-  <label for="upnp">... WiFi UPNP</label>
-</div>
-<div>
-  <input type="checkbox" id="airplay" value="TRUE" checked="checked">
-  <label for="airplay">... Apple AirPlay</label>
-</div>
-<div>
-  <input type="checkbox" id="spotify" value="TRUE" checked="checked">
-  <label for="spotify">... Spotify Device List</label>
-</div>
-	<p><b>More functionalities:</b></p>
-<div>
-  <input type="checkbox" id="snapcast" value="TRUE">
-  <label for="snapcast">Snapcast Multiroom</label>
-</div>
-</FORM>
+  <p>Choose the components you wish to install. This is also available after first installation, it can be d$
+        <p><br></p>
+        <p><b>I wish to stream audio via ...</b></p>
+<script type="text/javascript" src="vartofile.js"></script>
+<form name="installform" action="something" method="get">
+<input type="checkbox" name="bluetooth" value="TRUE" checked="checked"> ... Bluetooth<br>
+  <input type="checkbox" name="upnp" value="TRUE" checked="checked"> ... WiFi UPNP<br>
+  <input type="checkbox" name="airplay" value="TRUE" checked="checked"> ... Apple AirPlay<br>
+  <input type="checkbox" name="spotify" value="TRUE" checked="checked"> ... Spotify Device List<br>
+<p><b>More functionalities:</b></p>
+  <input type="checkbox" name="snapcast" value="TRUE">Snapcast Multiroom
+</form>
+
 <div class="btn_tab_back">
   <button class="tablinks" onclick="openTab(event, 'Update')">BACK<br></button>
 </div>
@@ -390,14 +377,6 @@ html, body {
 	
 </body>	  
 <script>
-
-function save_installform() {
-	var bluetooth = document.getElementById('bluetooth');
-	var airplay = document.getElementById('airplay');
-	var upnp = document.getElementById('upnp');
-	var spotify = document.getElementById('spotify');
-	var snapcast = document.getElementById('snapcast');
-}
 
 function openTab(evt, tabName) {
   var i, tabcontent, tablinks;
